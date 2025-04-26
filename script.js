@@ -7,6 +7,7 @@ const searchBtn = document.querySelector(`.search button`);
 const weatherImage = document.querySelector(`.weather .weather-icon`);
 const displayWeather = document.querySelector(`.weather`);
 const errorMessage = document.querySelector(`.error`);
+const weatherDescription = document.querySelector(`.weather-description`);
 
 
 async function checkWeather(city) {
@@ -30,23 +31,33 @@ document.querySelector(`.temp`).innerHTML = Math.round(data.main.temp) + `°C`;
 document.querySelector(`.humidity`).innerHTML = data.main.humidity + `%`;
 document.querySelector(`.wind`).innerHTML = data.wind.speed + ` KM/H`;
 
+console.log(data.weather[0].description);
+
 if (data.weather[0].main === `Clouds`){
     weatherImage.src = `images 2/clouds.png`;
+    weatherDescription.textContent = data.weather[0].description;
 } else if (data.weather[0].main === `Clear`){
     weatherImage.src = `images 2/clear.png`;
+    weatherDescription.textContent = data.weather[0].description;
 } else if (data.weather[0].main === `Drizzle`){
     weatherImage.src = `images 2/drizzle.png`;
+    weatherDescription.textContent = data.weather[0].description;
 } else if (data.weather[0].main === `Mist`){
 weatherImage.src = `images 2/mist.png`;
+weatherDescription.textContent = data.weather[0].description;
 
 }  else if (data.weather[0].main === `Snow`){
     weatherImage.src = `images 2/snow.png`;
+    weatherDescription.textContent = data.weather[0].description;
     
     }  else if (data.weather[0].main === `Rain`){
         weatherImage.src = `images 2/rain.png`;
+    weatherDescription.textContent = data.weather[0].description;
         
         } 
  displayWeather.classList.add(`show`);
+ searchBox.value = ``;
+ 
 
 console.log(data.name);
 
